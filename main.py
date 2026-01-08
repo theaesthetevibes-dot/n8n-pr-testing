@@ -110,7 +110,12 @@ async def login_page():
 async def root():
     # Auth is handled by middleware
     return FileResponse("frontend/index.html")
-
+    
+@app.get("/new")
+async def root():
+    # Auth is handled by middleware
+    return FileResponse("frontend/index.html")
+    
 @app.get("/holdings")
 async def holdings_page():
     return FileResponse("frontend/holdings.html")
@@ -198,3 +203,4 @@ async def health_check():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True, reload_dirs=["backend", "frontend"])
+
